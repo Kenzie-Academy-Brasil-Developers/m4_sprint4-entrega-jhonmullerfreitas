@@ -5,19 +5,20 @@ services:
     container_name: express_api_entrega
     build: .
     ports:
-      - 5050:3000
+      - 5050:5050
     environment:
       - DB_USER=postgres
       - DB_HOST=db
       - DB=products_management
       - DB_PASSWORD=postgres
       - DB_PORT=5432
-    
     depends_on: 
       - db
+    volumes:
+      - .:/app
   db:
     container_name: db
-    image: postgres:14.3
+    image: postgres:12
     ports:
       - 5432:5432
     environment:
@@ -29,12 +30,12 @@ services:
   
   db_test:
     container_name: db_test
-    image: postgres:14.3
+    image: postgres:12
     ports:
       - 5431:5432
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres1
+      - POSTGRES_PASSWORD=postgres1
       - POSTGRES_DB=tests_products
     volumes:
       - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql

@@ -1,12 +1,12 @@
 import database from "../database";
 
-const listCategoriesService = () =>{
+const listCategoriesService = async () =>{
     try {
-        const res = database.query(
+        const res = await database.query(
             "SELECT name FROM categories"
         );
 
-        return res;
+        return res.rows;
         
     } catch (error) {
         throw new Error(error);

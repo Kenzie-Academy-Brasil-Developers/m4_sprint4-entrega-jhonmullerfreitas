@@ -1,6 +1,5 @@
 import database from "../database";
 
-
 const createCategoriesService = async (name) => {
 
     try {
@@ -9,7 +8,12 @@ const createCategoriesService = async (name) => {
             [name]
         );
 
-        return res.rows[0];
+        const response = {
+            message: "Categoria criada!",
+            category: res.rows[0]
+        }
+
+        return response;
         
     } catch (error) {
         throw new Error(error);

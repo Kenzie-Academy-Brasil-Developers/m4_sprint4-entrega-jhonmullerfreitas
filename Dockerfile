@@ -1,6 +1,4 @@
-FROM node:alpine
-
-RUN apk update
+FROM node
 
 ENV PORT=5050
 
