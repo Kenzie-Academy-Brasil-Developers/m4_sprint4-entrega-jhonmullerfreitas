@@ -7,7 +7,7 @@ const database = new Client(
         host: "localhost",
         database: "tests_products",
         password: "postgres",
-        port: 5432
+        port: 5431
       }
     : {
         user: process.env.DB_USER,

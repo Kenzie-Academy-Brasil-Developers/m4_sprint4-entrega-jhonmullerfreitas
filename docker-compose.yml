@@ -14,10 +14,10 @@ services:
       - DB_PORT=5432
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; yarn dev'
     depends_on: 
-        - db
+      - db
   db:
     container_name: db
-    image: postgres:14.3-alpine
+    image: postgres:14.3
     ports:
       - 5432:5432
     environment:
@@ -29,12 +29,12 @@ services:
   
   db_test:
     container_name: db_test
-    image: postgres:14.3-alpine
+    image: postgres:14.3
     ports:
       - 5431:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=products_management
+      - POSTGRES_DB=tests_products
     volumes:
       - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql

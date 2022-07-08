@@ -1,15 +1,19 @@
 FROM node:alpine
 
-ENV port=3000
+RUN apk update
+
+ENV PORT=3000
 
 EXPOSE 3000
 
 WORKDIR /app
 
-COPY ["package.json", "yarn.lock"] .
+COPY package*.json ./
 
 RUN yarn
 
 COPY . .
+
+USER node
 
 CMD ["yarn", "dev"]
