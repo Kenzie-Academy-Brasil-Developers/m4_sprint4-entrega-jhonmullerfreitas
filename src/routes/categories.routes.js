@@ -1,5 +1,5 @@
 import { Router } from "express";
-import createCategoriesController from "../controllers/createCategoriesController.controller";
+import createCategoriesController from "../controllers/createCategories.controller";
 import listCategoriesController from "../controllers/listCategories.controller";
 
 

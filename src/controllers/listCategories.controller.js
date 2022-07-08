@@ -1,8 +1,8 @@
 import listCategoriesService from "../services/listCategories.service";
 
-const listCategoriesController = (request, response) => {
+const listCategoriesController = async (request, response) => {
     try {
-        const listCategories = listCategoriesService();
+        const listCategories = await listCategoriesService();
 
         return response.status(201).json(listCategories);
     } catch (error) {
