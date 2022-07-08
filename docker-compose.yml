@@ -5,14 +5,14 @@ services:
     container_name: express_api_entrega
     build: .
     ports:
-      - 3000:3000
+      - 5050:3000
     environment:
       - DB_USER=postgres
       - DB_HOST=db
       - DB=products_management
       - DB_PASSWORD=postgres
       - DB_PORT=5432
-    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; yarn dev'
+    
     depends_on: 
       - db
   db:

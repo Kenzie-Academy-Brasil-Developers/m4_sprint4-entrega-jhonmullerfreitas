@@ -2,9 +2,9 @@ FROM node:alpine
 
 RUN apk update
 
-ENV PORT=3000
+ENV PORT=5050
 
-EXPOSE 3000
+EXPOSE 5050
 
 WORKDIR /app
 
