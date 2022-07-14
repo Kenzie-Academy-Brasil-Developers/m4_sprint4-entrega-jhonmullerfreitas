@@ -1,18 +1,15 @@
 import database from "../database";
 
-const createCategoriesService = async (name) => {
-
+const updateCategoriesService = async (idCategory, name) => {
 
     try {
         const res = await database.query(
-            "INSERT INTO categories(name) VALUES($1) RETURNING *",
-            [name]
+            "UPDATE categories SET name = ($2) WHERE id = ($1) RETURNING *",
+            [idCategory, name]
         );
 
-        
-
         const response = {
-            message: "Categoria criada!",
+            message: "Atualizada",
             category: res.rows[0]
         }
 
@@ -23,4 +20,4 @@ const createCategoriesService = async (name) => {
     };
 };
 
-export default createCategoriesService;
+export default updateCategoriesService;
