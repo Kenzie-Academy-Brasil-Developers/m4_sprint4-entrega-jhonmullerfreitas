@@ -1,9 +1,9 @@
 import database from "../database";
 
-const listCategoriesService = async () =>{
+const listProductsService = async () =>{
     try {
         const res = await database.query(
-            "SELECT name FROM categories"
+            "SELECT name FROM products"
         );
         
         return res.rows;
@@ -13,4 +13,4 @@ const listCategoriesService = async () =>{
     };
 };
 
-export default listCategoriesService;
+export default listProductsService;
