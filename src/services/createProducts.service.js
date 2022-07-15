@@ -9,7 +9,7 @@ const createProductsService = async (name, price, category_id) => {
         )
         
         if(!productsAleradyExists){
-            throw new Error(error)
+             throw new Error(error)
         }
 
 

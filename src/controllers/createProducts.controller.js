@@ -8,7 +8,7 @@ const createProductsController = async (request, response) => {
 
         return response.status(201).json(product);
     } catch (error) {
-        return response.status(400).json(error.message);
+        return response.status(400).json({message: error.message});
     }
 };
 
