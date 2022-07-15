@@ -9,7 +9,8 @@ const createCategoriesController = async (request, response) => {
         return response.status(201).json(categories);
         
     } catch (error) {
-        return response.status(400).json(error.message);
+        // return response.status(400).json(error.message);
+        return response.status(400).json({message: "Category Already Exists."});
     }
 };
 

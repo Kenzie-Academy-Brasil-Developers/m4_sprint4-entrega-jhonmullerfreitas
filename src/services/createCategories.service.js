@@ -2,23 +2,20 @@ import database from "../database";
 
 const createCategoriesService = async (name) => {
 
-
     try {
-        const categoryAleradyExists = await database.query(
+        const categoryAlreadyExists = await database.query(
             "SELECT name FROM categories WHERE name = ($1)",
             [name]
         )
         
-        if(!categoryAleradyExists){
-             throw new Error(error)
+        if(categoryAlreadyExists.rows.length != 0){
+            throw (error)
         }
 
         const res = await database.query(
             "INSERT INTO categories(name) VALUES($1) RETURNING *",
             [name]
         );
-
-        
 
         const response = {
             message: "Categoria criada!",
